@@ -30,7 +30,7 @@ judge_client = OpenAI(
 def run_judge(prompt: str) -> str:
 
     response = judge_client.chat.completions.create(
-        model="/vol/bitbucket/ns1324/msc_thesis/models/Qwen3-32B",
+        model="Qwen/Qwen3-32B",
         messages=[
             {
                 "role": "user",
