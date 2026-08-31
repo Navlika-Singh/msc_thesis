@@ -1,17 +1,10 @@
 """
-End-to-end SaFeR-ToolKit-style safety evaluation, open-source judge, batched.
-
-Usage:
-    python run_eval.py \
-        --data PKU-Alignment/BeaverTails-V --split evaluation \
-        --policy qwen2.5-vl-7b-instruct \
-        --judge qwen3-vl-32b-instruct \
-        --batch-size 8 \
-        --out outputs/results.jsonl
-
-Interrupted runs resume automatically: on restart with the same --out path,
-already-completed sample ids are skipped and new records are appended.
-Pass --no-resume to force a clean restart (truncates --out).
+python run_eval.py \
+    --data PKU-Alignment/BeaverTails-V --split evaluation \
+    --policy qwen2.5-vl-7b-instruct \
+    --judge qwen3-vl-32b-instruct \
+    --batch-size 8 \
+    --out outputs/results.jsonl
 """
 import argparse
 import json

@@ -1,12 +1,3 @@
-"""
-Aggregate per-sample judge scores into the two views the paper reports:
-
-  - Table 1 style: % of samples achieving the *maximum* score per dimension
-    (Safety==3, Helpfulness==3, Reasoning Rigor==3), grouped by benchmark.
-  - Table 8 style: mean score per dimension, grouped by benchmark.
-
-Safety is on [-3, 3], Helpfulness and Reasoning Rigor are on [0, 3].
-"""
 from collections import defaultdict
 from typing import List
 

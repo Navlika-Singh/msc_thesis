@@ -16,7 +16,6 @@ def load_jsonl(path):
     with open(path, "r") as f:
         return [json.loads(line) for line in f]
 
-
 raw = {x["id"]: x for x in load_jsonl(RESULTS)}
 judged = load_jsonl(JUDGED)
 

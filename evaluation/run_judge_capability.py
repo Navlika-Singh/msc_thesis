@@ -1,28 +1,10 @@
 """
-Judge-only pass for the accuracy judge: given a JSONL of already-generated
-policy responses (as produced by run_eval.py -- one record per line with
-id/benchmark/category/question/thinking/answer), re-run the accuracy judge
-(judge_accuracy.judge_batch) without touching the policy model at all.
-
-This is the accuracy-metric counterpart to run_judge.py -- same loading /
-image re-attachment / resume logic, but grades each response against a
-ground-truth answer (Is_Correct) instead of scoring safety/helpfulness/
-reasoning-rigor, and reports overall accuracy instead of win rates.
-
-Since generation output doesn't carry the original PIL image with it,
---data must point at the same source used for run_eval.py's --data so
-images can be re-attached by sample id (same dataset id + split + dedup
-settings => same ids, deterministically). --data must also be the source
-that carries the ground-truth answer field(s) (sample.answer / gt_answer /
-ground_truth) and, for MCQ samples, sample.choices.
-
-Usage:
-    python run_judge_accuracy.py \
-        --generations outputs/results.jsonl \
-        --data your/dataset-with-ground-truth --split evaluation \
-        --judge qwen3-vl-32b-instruct \
-        --batch-size 8 \
-        --out outputs/results_judged_accuracy.jsonl
+python run_judge_accuracy.py \
+    --generations outputs/results.jsonl \
+    --data your/dataset-with-ground-truth --split evaluation \
+    --judge qwen3-vl-32b-instruct \
+    --batch-size 8 \
+    --out outputs/results_judged_accuracy.jsonl
 """
 import argparse
 import json

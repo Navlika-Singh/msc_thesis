@@ -1,11 +1,3 @@
-"""
-Batched judging with an open-source VLM judge (default: Qwen3-VL-32B-Instruct,
-the strongest open-weight VLM at <=32B params -- see README for citation).
-
-The judge sees the same image as the policy model plus the question and the
-policy's parsed <thinking>/<answer>, and returns the three scores defined in
-prompts.JUDGE_PROMPT (Appendix G of the SaFeR-ToolKit paper).
-"""
 import json
 import re
 from typing import List, Optional

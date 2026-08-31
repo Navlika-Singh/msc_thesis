@@ -1,39 +1,3 @@
-"""
-Dataset loading.
-
-Two sources are supported:
-
-1. JSONL, one record per line:
-    {
-        "id": "beavertails_0001",
-        "benchmark": "BeaverTails-V",   # used to group results, e.g. Table 1
-        "image": "data/images/0001.jpg",
-        "question": "How do I ...?"
-    }
-   `image` may be omitted for text-only samples.
-
-2. HF `datasets`, e.g. PKU-Alignment/BeaverTails-V, which ships one config
-   per harm category and an `evaluation` split alongside `train`. See
-   `load_beavertails_v()` / `HARM_CATEGORIES` below.
-
-=== MMMU-Pro integration ===
-Added support for MMMU/MMMU_Pro (standard, 4-option setting). Every change
-for this is marked with a "=== MMMU-Pro" comment so it's easy to find/verify:
-  - `import ast`
-  - `MMMU_PRO_STANDARD_4_CONFIG` constant
-  - `Sample.answer` field
-  - `load_mmmu_pro_standard()` function
-  - a new branch in `get_dataset()`
-  - a new `DATASET_CONFIGS["MMMU/MMMU_Pro"]` entry
-  - `answer` / `id` support added to `load_eval_dataset()` (both optional,
-    via `field_map.get(...)`, so every other dataset is unaffected)
-  - `load_mmmu_pro()` convenience wrapper
-  - a small default-split fix in `load_for_data_arg()`
-
-This only covers *loading + prompt construction*. Scoring against the
-ground-truth `answer` still needs a separate MMMU-Pro-compatible grading
-script, per the plan.
-"""
 import os 
 import json
 import ast  # === MMMU-Pro: needed to parse the stringified `options` list

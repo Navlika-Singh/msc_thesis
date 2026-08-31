@@ -1,25 +1,10 @@
 """
-Judge-only pass: given a JSONL of already-generated policy responses (as
-produced by run_eval.py -- one record per line with id/benchmark/category/
-question/thinking/answer), re-run just the SaFeR-ToolKit-style absolute
-judge without touching the policy model at all.
-
-Useful for: re-judging with a different/updated judge model, splitting
-generation and judging across machines, or resuming a judge pass that died
-independently of generation.
-
-Since generation output doesn't carry the original PIL image with it,
---data must point at the same source used for run_eval.py's --data so
-images can be re-attached by sample id (same dataset id + split + dedup
-settings => same ids, deterministically).
-
-Usage:
-    python run_judge.py \
-        --generations outputs/results.jsonl \
-        --data PKU-Alignment/BeaverTails-V --split evaluation \
-        --judge qwen3-vl-32b-instruct \
-        --batch-size 8 \
-        --out outputs/results_judged.jsonl
+python run_judge.py \
+    --generations outputs/results.jsonl \
+    --data PKU-Alignment/BeaverTails-V --split evaluation \
+    --judge qwen3-vl-32b-instruct \
+    --batch-size 8 \
+    --out outputs/results_judged.jsonl
 """
 import argparse
 import json

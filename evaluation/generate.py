@@ -1,11 +1,3 @@
-"""
-Batched generation of policy (responder) outputs.
-
-Each sample is rendered as a single-turn chat: [system, user(image?, text)].
-The whole batch is templated, tokenized with left-padding, and generated in
-one forward pass per batch (greedy by default -- pass do_sample=True for
-GRPO-style multi-rollout sampling).
-"""
 from typing import List, Optional
 
 import torch
