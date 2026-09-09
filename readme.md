@@ -2,6 +2,14 @@
 
 This repository contains the training and evaluation code for **SC-GRPO** and related GRPO variants for safety and capability alignment of Multimodal Large Language Models (MLLMs).
 
+## Environment Setup
+
+Recreate the Conda environment using the provided `env.yaml` file:
+
+```bash
+conda env create -f env.yaml
+```
+
 ## Training
 
 All training scripts are available under:
