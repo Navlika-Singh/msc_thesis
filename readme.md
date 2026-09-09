@@ -117,7 +117,7 @@ python run_judge.py \
 For capability benchmarks with ground-truth answers, use:
 
 ```bash
-python run_judge_accuracy.py \
+python run_judge_capability.py \
     --generations outputs/results.jsonl \
     --data your/dataset-with-ground-truth \
     --split evaluation \
